@@ -103,7 +103,7 @@ COPY docker/startup.sh docker/supervisord.conf /
 COPY docker/supervisor-exit-event-listener /usr/bin/supervisor-exit-event-listener
 RUN chmod +x /startup.sh /usr/bin/supervisor-exit-event-listener
 
-CMD ["/startup.sh"]
+CMD ["sh", "-c", "source /var/lib/snipe.env && /startup.sh"]
 
 EXPOSE 80
 EXPOSE 443
